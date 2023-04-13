@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="cardswizard.css" media="all" />
     <script src="cardswizard.js" async="async"></script>
-
   </head>
 
   <body>
@@ -13,74 +12,90 @@
     <div id="cardswizard_wrapper">
 
       <div id='cardswizard'>
-        <div id="block0" class="block open">
-          <div id="block_title_0" class="block_title" onclick='open_block(0)'>Step zero</div>
-          <div class="block_content">
-            <div class="block_inner_wrapper">
+        <div class="card open" data-clickback="yes">
+          <div class="card_title">Step zero</div>
+          <div class="card_content">
+            <div class="card_inner_wrapper">
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas feugiat consectetur libero vel aliquam. Morbi at consequat metus. Fusce vulputate justo a lectus luctus dictum. Nullam tortor ligula, laoreet vel lobortis nec, aliquam lobortis leo. Quisque eget lorem sed sapien viverra congue pharetra vitae sapien. Vivamus et massa ac ex lobortis cursus. Aenean pellentesque lectus non nisi gravida, sit amet placerat nisl vehicula. Sed eget justo urna. Sed porttitor ligula tortor, et tincidunt lorem aliquet quis. Praesent eget orci dapibus, laoreet risus pretium, lacinia risus. Aliquam pretium semper porta. Duis velit justo, pharetra quis urna nec, lobortis pretium lorem. Quisque congue nibh ac lacinia auctor. Fusce et libero egestas, molestie lectus a, elementum arcu. Nam eget viverra dolor. Phasellus fermentum lectus sed urna sodales, in egestas nulla bibendum.</p>
               <hr/>
-              <button onclick='open_block(1)'>Let's start!</button>
+              <button data-open-card='1'>Let's start!</button>
             </div>
           </div>
         </div>
 
-        <div id="block1" class="block">
-          <div class="block_title" onclick='open_block(1)'>Step one<span class="wizard_restart">Restart</span></div>
-          <div class="block_content">
-            <div class="block_inner_wrapper">
+        <div class="card" data-clickback="yes">
+          <div class="card_title">Step one<span class="wizard_restart clickback_visible">Restart</span></div>
+          <div class="card_content">
+            <div class="card_inner_wrapper">
               <p>Sed in orci blandit odio volutpat venenatis. Proin luctus odio enim, quis tincidunt nisl blandit quis. Praesent id libero non risus porta facilisis. Nunc ut nibh non eros pellentesque viverra eu vel dolor. Duis fermentum tincidunt volutpat. Sed congue neque sit amet mattis venenatis. Nullam eros felis, rhoncus in sollicitudin in, tempor eleifend sem. Quisque faucibus, velit a feugiat fermentum, dui lorem suscipit tellus, eu vestibulum diam leo ac sapien. Phasellus id lobortis augue, quis luctus lorem. Cras molestie gravida purus, vitae egestas lacus maximus facilisis. Cras enim justo, suscipit eu nunc ut, vehicula malesuada metus. Nullam vulputate nulla ac justo accumsan, sit amet pulvinar elit sollicitudin. Aenean ullamcorper elit commodo tincidunt rhoncus. Phasellus venenatis ligula dolor.</p>
               <hr/>
-              <button onclick='open_block(2)'>Next step</button>
-              <p align="center"><a href="#" onclick='open_block(0)'><small>Go back to the previous step</small></a></p>
+              <button data-open-card='2'>Next step</button>
+              <p align="center"><a href="#" data-open-card='0'><small>Go back to the previous step</small></a></p>
             </div>
           </div>
         </div>
 
-        <div id="block2" class="block">
-          <div class="block_title" onclick='open_block(0)'>Step two</div>
-          <div class="block_content">
-            <div class="block_inner_wrapper">
+        <div class="card">
+          <div class="card_title">Step two</div>
+          <div class="card_content">
+            <div class="card_inner_wrapper">
               <p>Vivamus sit amet arcu bibendum, imperdiet leo ut, egestas nulla. Integer id aliquam tortor. Aenean eu justo et nibh dictum fringilla eu non neque. Suspendisse potenti. Maecenas pharetra sit amet felis nec suscipit. Mauris scelerisque lacus mauris, vel pretium est sodales eget. Duis velit est, porta a cursus vel, feugiat sit amet velit. Mauris ut mattis massa.</p>
               <hr/>
-              <button onclick='open_block(3)'>Next step</button>
+              <button data-open-card='3'>Next step</button>
             </div>
           </div>
         </div>
 
-        <div id="block3" class="block">
-          <div class="block_title" onclick='open_block(0)'>Step three</div>
-          <div class="block_content">
-            <div class="block_inner_wrapper">
+        <div class="card">
+          <div class="card_title">Step three</div>
+          <div class="card_content">
+            <div class="card_inner_wrapper">
               <p>Vivamus sit amet arcu bibendum, imperdiet leo ut, egestas nulla. Integer id aliquam tortor. Aenean eu justo et nibh dictum fringilla eu non neque. Suspendisse potenti. Maecenas pharetra sit amet felis nec suscipit. Mauris scelerisque lacus mauris, vel pretium est sodales eget. Duis velit est, porta a cursus vel, feugiat sit amet velit. Mauris ut mattis massa.</p>
               <hr/>
-              <button onclick='open_block(4)'>Next step</button>
+              <button data-open-card='4'>Next step</button>
             </div>
           </div>
         </div>
 
-        <div id="block4" class="block">
-          <div class="block_title" onclick='open_block(0)'>Step four</div>
-          <div class="block_content">
-            <div class="block_inner_wrapper">
+        <div class="card">
+          <div class="card_title">Step four</div>
+          <div class="card_content">
+            <div class="card_inner_wrapper">
               <p>Vivamus sit amet arcu bibendum, imperdiet leo ut, egestas nulla. Integer id aliquam tortor. Aenean eu justo et nibh dictum fringilla eu non neque. Suspendisse potenti. Maecenas pharetra sit amet felis nec suscipit. Mauris scelerisque lacus mauris, vel pretium est sodales eget. Duis velit est, porta a cursus vel, feugiat sit amet velit. Mauris ut mattis massa.</p>
               <hr/>
-              <button onclick='open_block(5)'>Next step</button>
+              <button data-open-card='5'>Next step</button>
             </div>
           </div>
         </div>
 
-        <div id="block5" class="block">
-          <div class="block_title" onclick='open_block(0)'>Final step</div>
-          <div class="block_content">
-            <div class="block_inner_wrapper">
+        <div class="card">
+          <div class="card_title">Final step</div>
+          <div class="card_content">
+            <div class="card_inner_wrapper">
               <p>Vivamus sit amet arcu bibendum, imperdiet leo ut, egestas nulla. Integer id aliquam tortor. Aenean eu justo et nibh dictum fringilla eu non neque. Suspendisse potenti. Maecenas pharetra sit amet felis nec suscipit. Mauris scelerisque lacus mauris, vel pretium est sodales eget. Duis velit est, porta a cursus vel, feugiat sit amet velit. Mauris ut mattis massa.</p>
               <hr/>
-              <button onclick='open_block(0)'>Back to zero</button>
+              <button data-open-card='0'>Back to zero</button>
             </div>
           </div>
         </div>
 
     </div>
+
+    <style>
+      .wizard_restart {
+        display: none;
+        float: right;
+        margin-right: 0.5em;
+        font-size: 0.8em;
+        text-decoration: underline;
+      }
+    </style>
+
+    <script>
+      window.onload = function() {
+        cardsWizard('cardswizard');
+      };
+    </script>
 
   </body>
 </html>

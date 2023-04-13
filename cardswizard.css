@@ -110,7 +110,7 @@ hr {
   margin: 0 auto;
 }
 
-.block {
+.card {
   width: 98%;
   margin: 0 auto;
   margin-bottom: 20px;
@@ -120,19 +120,19 @@ hr {
   transition: all 0.4s ease-in-out;
 }
 
-.block.open {
+.card.open {
   width: 100%;
   margin-bottom: 30px;
   box-shadow: 1px 1px 32px rgb(0 0 0 / 70%);
 }
 
-.block .text {
+.card .text {
   font-size: 0.9em;
   line-height: 1.2em;
   margin-bottom: 1em;
 }
 
-.block_title {
+.card_title {
   font-size: 0.9em;
   padding: 12px 22px;
   border-bottom: none;
@@ -140,36 +140,32 @@ hr {
   backdrop-filter: blur(5px);
 }
 
-.block.clickable {
+.card.clickback {
   cursor: pointer;
 }
 
-.block.clickable .block_title:hover {
+.card.clickback .clickback_visible {
+  display: inline;
+}
+
+.card.clickback .card_title:hover {
   color: #FFFFFF;
   background-color: var(--back-color);
   opacity: 1;
 }
 
-.block.open .block_title {
+.card.open .card_title {
   font-size: 1em;
   font-weight: 300;
   color: #FFFFFF;
   background-color: var(--main-color);
 }
 
-.block.open .block_content {
+.card.open .card_content {
   max-height: 1600px;
 }
 
-.wizard_restart {
-  display: none;
-  float: right;
-  margin-right: 0.5em;
-  font-size: 0.8em;
-  text-decoration: underline;
-}
-
-.block_content {
+.card_content {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
@@ -177,6 +173,6 @@ hr {
   font-size: 0.9em;
 }
 
-.block_inner_wrapper {
+.card_inner_wrapper {
   margin: 32px 42px;
 }

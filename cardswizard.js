@@ -1,42 +1,65 @@
-function open_block(n) {
-  
-  document.body.style.setProperty("--bg-opacity", 0.15 * n);
-  const blocks = document.getElementById("cardswizard").querySelectorAll(".block");
-  var fade = true;
-  blocks.forEach((element, index) => {
-    if (element.id == 'block' + n) {
-      element.classList.add("open");
-      fade = false;
-    } else {
-      element.classList.remove("open");
-    }
-    if (fade) {
-      var brightness = 1.0 - (n - index*index) * 5.0 / 100.0;
-      element.querySelector(".block_title").style.filter = "brightness(" + brightness + ")";
-      element.style.transform = "scale(" + (100.0 - (n - index) * 5) / 100 + ")";
-      element.style.setProperty("margin-bottom", "-" + (6 + n*3 - index*3) + "px");
-    } else {
-      element.querySelector(".block_title").style.filter = "brightness(1)";
-      element.style.transform = "scale(1)";
-      element.style.removeProperty("margin-bottom");
+function cardsWizard(elementId) {
+  var cards_wizard = document.getElementById(elementId);
+  var open_card = 0;
+
+  var openCardElements = cards_wizard.querySelectorAll('[data-open-card]');
+  for (var i = 0; i < openCardElements.length; i++) {
+    openCardElements[i].addEventListener('click', function() {
+      var openCardValue = this.getAttribute('data-open-card');
+      openCard(openCardValue);
+    });
+  }
+
+  const cards = cards_wizard.querySelectorAll(".card");
+  cards.forEach((card, index) => {
+    if (card.hasAttribute('data-clickback')) {
+      card.querySelector(".card_title").addEventListener('click', function() {
+        clickBack(index);
+      });
     }
   });
 
-  // Custom logic
+  function clickBack(n) {
+    if (n < open_card) {
+      openCard(n);
+    }
+  };
 
-  if (n == 0) {
-    document.getElementById("block0").classList.remove("clickable");
-  } else {
-    document.getElementById("block0").classList.add("clickable");
+  function openCard(n) {
+    open_card = n;
+    document.body.style.setProperty("--bg-opacity", 0.15 * n);
+    const cards = document.getElementById("cardswizard").querySelectorAll(".card");
+    var fade = true;
+    cards.forEach((element, index) => {
+
+      if (element.hasAttribute('data-clickback') && index < n ) {
+        element.classList.add("clickback");
+      } else {
+        element.classList.remove("clickback");
+      }
+
+      if (index == n) {
+        element.classList.add("open");
+        fade = false;
+      } else {
+        element.classList.remove("open");
+      }
+
+      if (fade) {
+        var brightness = 1.0 - (n - index*index) * 5.0 / 100.0;
+        element.querySelector(".card_title").style.filter = "brightness(" + brightness + ")";
+        element.style.transform = "scale(" + (100.0 - (n - index) * 5) / 100 + ")";
+        element.style.setProperty("margin-bottom", "-" + (6 + n*3 - index*3) + "px");
+      } else {
+        element.querySelector(".card_title").style.filter = "brightness(1)";
+        element.style.transform = "scale(1)";
+        element.style.removeProperty("margin-bottom");
+      }
+    });
   }
 
-  var wizard_restart_element = document.getElementById("wizard_accordion").querySelector(".wizard_restart");
-  if (n > 1) {
-    if (wizard_restart_element) { wizard_restart_element.style.display = 'inline'; }
-    document.getElementById("block1").classList.add("clickable");
-  } else {
-    if (wizard_restart_element) { wizard_restart_element.style.display = 'none'; }
-    document.getElementById("block1").classList.remove("clickable");
-  }
-
+  return {
+    openCard: openCard,
+  };
+  
 }
